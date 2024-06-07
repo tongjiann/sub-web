@@ -203,6 +203,7 @@ export default {
 
       options: {
         clientTypes: {
+          ClashWithNewParameter: "clash&new_name=true",
           Clash: "clash",
           Surge: "surge&ver=4",
           Quantumult: "quan",
@@ -431,7 +432,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: "http://xiw.world:25500",
+        customBackend: "https://converter.xiw.world",
         remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini",
         excludeRemarks: "",
         includeRemarks: "",
@@ -769,7 +770,7 @@ export default {
           this.form.udp = params.get("udp") === "true";
           this.form.tpl.surge.doh = params.get("surge.doh") === "true";
           this.form.tpl.clash.doh = params.get("clash.doh") === "true";
-          this.form.new_name = params.get("new_name") === "true";
+          this.form.new_name = !(params.get("new_name") === "false");
 
           // Hide the configuration dialog
           this.dialogLoadConfigVisible = false;
