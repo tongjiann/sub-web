@@ -27,8 +27,7 @@
 
               <div v-if="advanced === '2'">
                 <el-form-item label="后端地址:">
-                  <el-autocomplete style="width: 100%" v-model="form.customBackend" :fetch-suggestions="backendSearch"
-                                   placeholder="动动小手，（建议）自行搭建后端服务。例：http://127.0.0.1:25500/sub?">
+                  <el-autocomplete style="width: 100%" v-model="form.customBackend" :fetch-suggestions="backendSearch">
                     <el-button slot="append" @click="gotoGayhub" icon="el-icon-link">前往项目仓库</el-button>
                   </el-autocomplete>
                 </el-form-item>
@@ -221,7 +220,7 @@ export default {
           Trojan: "trojan",
           Surge3: "surge&ver=3",
         },
-        backendOptions: [{value: "http://127.0.0.1:25500/sub?"}],
+        backendOptions: [{value: "https://converter.xiw.world/sub?"}],
         remoteConfig: [
           {
             label: "ACL4SSR",
@@ -432,7 +431,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: "https://converter.xiw.world",
+        customBackend: "https://converter.xiw.world/sub?",
         remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini",
         excludeRemarks: "",
         includeRemarks: "",
@@ -485,7 +484,7 @@ export default {
     }
   },
   mounted() {
-    this.form.clientType = "clash";
+    this.form.clientType = "clash&new_name=true";
     this.notify();
     this.getBackendVersion();
   },
